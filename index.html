@@ -4,72 +4,510 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa do Mundo 1986</title>
+
+    <meta name="description"
+        content="Conheça a trajetória da Argentina na Copa do Mundo de 1986, conquistada com Diego Maradona.">
+
+    <title>Argentina Campeã | Copa do Mundo 1986</title>
 
     <style>
-        header {
-            background-color: rgb(255, 255, 255);
-            color: blue;
-            text-align: center;
-            max-width: max-content;
-            margin: auto;
+        /* Configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
-        main {
-            background-color: rgb(241, 245, 245);
-            color: rgb(35, 1, 255);
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fb;
+            color: #172554;
+            line-height: 1.7;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #74c9ed, #ffffff, #74c9ed);
+            color: #123b76;
             text-align: center;
-            padding: 20px;
+            padding: 35px 20px;
+            border-bottom: 5px solid #e5b94c;
+        }
+
+        .bandeira {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 1.05rem;
+        }
+
+        /* Menu de navegação */
+        nav {
+            background-color: #123b76;
+            padding: 14px 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 14px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd66b;
+        }
+
+        /* Conteúdo principal */
+        main {
+            width: min(1100px, 92%);
+            margin: 35px auto;
+        }
+
+        section {
+            margin-bottom: 35px;
+            scroll-margin-top: 85px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #123b76, #1767a8);
+            color: white;
+            padding: 40px 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 24px #123b7620;
+        }
+
+        .hero .subtitulo {
+            color: #ffe08a;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin: 10px 0;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 22px;
         }
 
         .botao {
             display: inline-block;
-            background-color: blue;
-            color: white;
-            padding: 10px 20px;
+            background-color: #f4c95d;
+            color: #17345d;
+            padding: 12px 22px;
             text-decoration: none;
-            border-radius: 5px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
         }
 
         .botao:hover {
-            background-color: darkblue;
+            background-color: #ffe49a;
+            transform: translateY(-3px);
+        }
+
+        /* Títulos */
+        .titulo-secao {
+            text-align: center;
+            color: #123b76;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 10px;
+        }
+
+        .descricao {
+            text-align: center;
+            color: #52647c;
+            max-width: 750px;
+            margin: 0 auto 25px;
+        }
+
+        /* Imagem principal */
+        .imagem-destaque {
+            background-color: white;
+            padding: 15px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px #17255412;
+            text-align: center;
+        }
+
+        .imagem-destaque img {
+            width: 100%;
+            max-width: 650px;
+            max-height: 440px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .imagem-destaque p {
+            padding: 10px 5px 2px;
+            color: #52647c;
+            font-size: 0.95rem;
+        }
+
+        /* Cartões de informações */
+        .cartoes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .cartao {
+            background-color: white;
+            padding: 25px 20px;
+            border-radius: 14px;
+            border-top: 4px solid #75c9eb;
+            box-shadow: 0 5px 18px #17255410;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cartao:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px #17255418;
+        }
+
+        .icone {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .cartao h3 {
+            color: #123b76;
+            margin-bottom: 8px;
+        }
+
+        /* Linha do tempo */
+        .linha-tempo {
+            max-width: 800px;
+            margin: 25px auto 0;
+        }
+
+        .evento {
+            background-color: white;
+            border-left: 5px solid #75c9eb;
+            padding: 18px 22px;
+            margin-bottom: 15px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 15px #1725540c;
+        }
+
+        .evento strong {
+            color: #1767a8;
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        /* Resultado da final */
+        .final {
+            background: linear-gradient(135deg, #e4f5ff, #ffffff);
+            border: 2px solid #a8ddf5;
+            border-radius: 18px;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .placar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .selecao {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .gols {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #123b76;
+        }
+
+        .separador {
+            font-size: 1.5rem;
+            color: #75849a;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #102e5b;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-top: 5px solid #e5b94c;
+        }
+
+        footer p + p {
+            margin-top: 5px;
+            color: #c8d9f0;
+            font-size: 0.9rem;
+        }
+
+        /* Ajustes para celulares */
+        @media (max-width: 700px) {
+            header {
+                padding: 28px 15px;
+            }
+
+            nav {
+                position: static;
+                line-height: 2.4;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 0.9rem;
+            }
+
+            main {
+                width: 94%;
+                margin: 22px auto;
+            }
+
+            .cartoes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 30px 18px;
+            }
+
+            .placar {
+                gap: 12px;
+            }
+
+            .selecao {
+                font-size: 0.95rem;
+            }
+
+            .gols {
+                font-size: 2rem;
+            }
         }
     </style>
 
-
+    
 </head>
 
 <body>
 
-    <header>
-        <h1>Copa do Mundo 1986</h1>
-        <p>Este site tem como objetivo falar sobre a Argentina campeã da Copa do Mundo de 86.</p>
+    <header id="inicio">
+        <div class="bandeira" aria-hidden="true">🇦🇷 🏆</div>
+        <h1>Argentina Campeã do Mundo</h1>
+        <p>
+            Relembre a emocionante trajetória da seleção argentina
+            até o bicampeonato mundial de 1986.
+        </p>
     </header>
 
+    <nav aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#historia">História</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#final">A Grande Final</a>
+    </nav>
+
     <main>
-        <h2>O Bicampeonato da Argentina</h2>
 
-        <p>Neste site será explicado por Kauã Victor o passo a passo da Argentina rumo ao título da Copa do Mundo de 86.</p>
+        <section class="hero">
+            <p class="subtitulo">México • 1986</p>
+            <h2>Uma conquista inesquecível</h2>
+            <p>
+                Liderada por Diego Maradona, a Argentina conquistou
+                sua segunda Copa do Mundo, vencendo a Alemanha Ocidental
+                por 3 a 2 em uma final emocionante.
+            </p>
+            <a class="botao" href="#historia">
+                Conheça essa história ↓
+            </a>
+        </section>
 
-        <h3>Argentina na Copa do Mundo de 1986</h3>
+        <section id="historia">
+            <h2 class="titulo-secao">O Bicampeonato da Argentina</h2>
 
-        <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Maradona_cup_azteca.jpg/960px-Maradona_cup_azteca.jpg"
-            alt="Maradona levantando o troféu da Copa do Mundo"
-            width="400"
-        >
+            <p class="descricao">
+                Desenvolvido por Kauã Victor, este site apresenta os
+                principais momentos da campanha argentina na Copa do
+                Mundo de 1986, desde os primeiros jogos até a conquista
+                do troféu.
+            </p>
 
-        <p>Imagem do Maradona levantando o troféu da Copa do Mundo.</p>
+            <div class="imagem-destaque">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Maradona_cup_azteca.jpg/960px-Maradona_cup_azteca.jpg"
+                    alt="Diego Maradona segurando o troféu da Copa do Mundo de 1986"
+                    loading="lazy"
+                >
+                <p>
+                    Diego Maradona celebra a conquista do Mundial
+                    realizado no México.
+                </p>
+            </div>
+        </section>
 
-        <a
-            href="https://pt.wikipedia.org/wiki/Final_da_Copa_do_Mundo_FIFA_de_1986"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="botao"
-        >Ver a final da Copa de 1986</a>
+        <section>
+            <h2 class="titulo-secao">Os destaques da conquista</h2>
+
+            <p class="descricao">
+                Três elementos marcaram a campanha argentina no México.
+            </p>
+
+            <div class="cartoes">
+
+                <article class="cartao">
+                    <div class="icone" aria-hidden="true">⭐</div>
+                    <h3>Diego Maradona</h3>
+                    <p>
+                        O camisa 10 foi o grande protagonista da
+                        competição, com atuações decisivas e gols
+                        memoráveis, especialmente contra a Inglaterra.
+                    </p>
+                </article>
+
+                <article class="cartao">
+                    <div class="icone" aria-hidden="true">⚽</div>
+                    <h3>Uma equipe forte</h3>
+                    <p>
+                        Sob o comando do técnico Carlos Bilardo,
+                        a seleção combinou talento, organização
+                        tática e eficiência nas fases eliminatórias.
+                    </p>
+                </article>
+
+                <article class="cartao">
+                    <div class="icone" aria-hidden="true">🏆</div>
+                    <h3>O segundo título</h3>
+                    <p>
+                        Após vencer a Copa de 1978, a Argentina
+                        conquistou seu segundo campeonato mundial
+                        em 1986.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="trajetoria">
+            <h2 class="titulo-secao">A trajetória até o título</h2>
+
+            <p class="descricao">
+                Veja os principais desafios enfrentados pela Argentina
+                durante a fase decisiva do torneio.
+            </p>
+
+            <div class="linha-tempo">
+
+                <article class="evento">
+                    <strong>Fase de grupos</strong>
+                    A Argentina avançou em primeiro lugar no Grupo A,
+                    enfrentando Itália, Bulgária e Coreia do Sul.
+                </article>
+
+                <article class="evento">
+                    <strong>Oitavas de final — Argentina 1 x 0 Uruguai</strong>
+                    Um confronto sul-americano decidido por um gol
+                    de diferença garantiu a classificação argentina.
+                </article>
+
+                <article class="evento">
+                    <strong>Quartas de final — Argentina 2 x 1 Inglaterra</strong>
+                    Maradona marcou dois gols históricos: o conhecido
+                    gol da "Mão de Deus" e o chamado "Gol do Século".
+                </article>
+
+                <article class="evento">
+                    <strong>Semifinal — Argentina 2 x 0 Bélgica</strong>
+                    Com dois gols de Maradona, a seleção garantiu
+                    sua vaga na decisão mundial.
+                </article>
+
+                <article class="evento">
+                    <strong>Final — Argentina 3 x 2 Alemanha Ocidental</strong>
+                    A equipe argentina conquistou o título no
+                    Estádio Azteca, na Cidade do México.
+                </article>
+
+            </div>
+        </section>
+
+        <section id="final" class="final">
+            <h2 class="titulo-secao">A Grande Final</h2>
+
+            <p>
+                29 de junho de 1986 — Estádio Azteca, México.
+            </p>
+
+            <div class="placar">
+                <div class="selecao">
+                    🇦🇷<br>
+                    Argentina
+                </div>
+
+                <div class="gols">3</div>
+
+                <div class="separador">×</div>
+
+                <div class="gols">2</div>
+
+                <div class="selecao">
+                    🇩🇪<br>
+                    Alemanha Ocidental
+                </div>
+            </div>
+
+            <p>
+                José Luis Brown, Jorge Valdano e Jorge Burruchaga
+                marcaram para a Argentina. Burruchaga fez o gol
+                decisivo após um passe de Maradona.
+            </p>
+
+            <br>
+
+            <a
+                class="botao"
+                href="https://pt.wikipedia.org/wiki/Final_da_Copa_do_Mundo_FIFA_de_1986"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Saiba mais sobre a final ↗
+            </a>
+        </section>
 
     </main>
+
+    <footer>
+        <p><strong>Argentina Campeã — Copa do Mundo de 1986</strong></p>
+        <p>Site desenvolvido por Kauã Victor &copy; 2026</p>
+        <p>Um tributo a uma das maiores campanhas da história do futebol.</p>
+    </footer>
 
 </body>
 
